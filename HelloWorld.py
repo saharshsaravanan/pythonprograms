@@ -1,2 +1,2 @@
-# This is comment
+# This is comment = local
 print("Hello World")
