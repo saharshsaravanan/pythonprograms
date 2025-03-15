@@ -1,2 +1,2 @@
-# This is comment - PR test
+# This is comment = local
 print("Hello World")
