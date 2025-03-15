@@ -1,2 +1,2 @@
-# This is comment - PR test
+# This is comment - approval test
 print("Hello World")
