@@ -1,2 +1,2 @@
-# This is comment - from sara
+# This is comment
 print("Hello World")
