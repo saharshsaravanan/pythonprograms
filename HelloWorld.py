@@ -1,3 +1,4 @@
-# This is comment - approval test2
+# How to print Hello World
+
 print("Hello World")
 
