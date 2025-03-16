@@ -1,5 +1,6 @@
 # Write a program to find the greatest of 3 numbers. use elif and if and else
-
+import sys
+sys.set_int_max_str_digits(9999)
 num_1 = int(input("Enter your 1st favorite number"))
 num_2 = int(input("Enter your  2nd favorite number"))
 num_3 = int(input("Enter your 3rd  favorite number"))
