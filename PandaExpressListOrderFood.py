@@ -23,11 +23,11 @@ while True:
     print (food.upper())
     if (food.upper() == "Q"):
         break
-        print(" please enter a item from the menu ")
     elif (food.lower() == "r"):
         pandalist.clear()
     elif food not in menudictonary.keys():
         printMenu(menudictonary)
+        print(" please enter a item from the menu ")
     else:
         pandalist.append(food)
 
