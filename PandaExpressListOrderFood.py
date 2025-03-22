@@ -1,6 +1,3 @@
-import total
-
-
 def printMenu(menu):
     for key in menu:
         print(key)
