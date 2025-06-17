@@ -88,12 +88,10 @@ player.activate_skill()
 
 def generate_notation(count):
     letters = list(string.ascii_uppercase)
-    notation_list = []
     a1, a2 = 0, 0
 
-    while len(notation_list) < count:
-        index = len(notation_list)
-
+    while len(letters) < count:
+        index = len(letters)
         if index < 26:
             new_notation = letters[a1]
         elif index < 26 ** 2:
@@ -102,14 +100,14 @@ def generate_notation(count):
             indexes = [(index // (26 ** i)) % 26 for i in range(3)]
             new_notation = ''.join(letters[i] for i in reversed(indexes))
 
-        notation_list.append(new_notation)
+        letters.append(new_notation)
         a2 += 1
 
         if a2 >= len(letters):
             a1 += 1
             a2 = 0
 
-    return notation_list[-1]
+    return letters[-1]
 def keep_first_three_digits(num):
     return int(str(num)[:3])
 
@@ -208,30 +206,48 @@ def login():
     cursor.execute("SELECT * FROM users WHERE username = %s AND password = %s", (username, password))
     user = cursor.fetchone()
     print("checking password",end=" ")
-    print(f"for {0.091+len(password)*1.4} ")
-    time.sleep(0.091+len(password)*1.4)
+
+    time.sleep(3.091+len(password)*1.6324)
 
     if user:
         print(f"Welcome, {username}! Login successful.")
         return True
     else:
-        print("Invalid login. Please try again.")
+        print("Invalid login. Please try again.❌❌❌❌❌❌❌❌❌❌❌❌")
         return False
 
     cursor.close()
     conn.close()
-    import math
+    import mathdef convert_alpha_exp(s):
+    if not s.startswith("1e"):
+        return s  # Not scientific notation mode
+
+    num_part = s[2:]
+    digits = ""
+    alpha = ""
+
+    # Split numeric and alphabetic parts
+    for ch in num_part:
+        if ch.isdigit():
+            digits += ch
+        else:
+            alpha += ch
+
+
+
+
 
     def transcendence_power(lifetime_ancient_souls):
         """Calculates Transcendence Power (TP) based on Lifetime Ancient Souls."""
         tp = 2 ** (0.0003 * lifetime_ancient_souls) - sqrt(lifetime_ancient_souls)
-        return max(tp, 0.005)  # Ensures TP is at least 0.005
+        return max(tp-2, 0)  # Ensures TP is at least 0 to not get negetive souls
 
 
 from math import prod, sqrt, ceil, floor
 
 class ClickerGame:
-    def __init__(self):
+    def __init__(self,name):
+        self.name = name
         self.zone = 1
         self.enemies_per_zone = 10
         self.enemies_defeated = 0
@@ -239,7 +255,9 @@ class ClickerGame:
         self.boss_zone_interval = 5
         self.lynel_interval = 23
         self.total_bosses_defeated = 0
-
+        self.crit_unlocked = True
+        self.crit_chance = 0.00001
+        self.crit_multiplier = 021.999999
     def calculate_gold_reward(self, is_boss, is_lynel):
             if self.zone == 1:
                 gold = 1
@@ -252,8 +270,7 @@ class ClickerGame:
                 gold *= 15
             elif is_boss:
                 gold *= 10
-
-            return floor(gold)
+            return gold
 
         def calculate_hp(self, is_boss, is_lynel):
             if self.zone <= 140:
@@ -287,6 +304,11 @@ class ClickerGame:
 
             if self.enemies_defeated >= self.enemies_per_zone:
                 self.advance_zone()
+            else:
+                print()
+
+
+
 
         def advance_zone(self):
             self.zone += 1
@@ -297,8 +319,15 @@ class ClickerGame:
 
             print(f"Zone {self.zone} reached! Enemies to defeat: {self.enemies_per_zone}")
 
-    import math
+        import math
 
+
+    def upgrade_crit_chance(self):
+            self.crit_chance += 0.02
+            return min(0.45,self.crit_chance)
+    def upgrade_crit_damage(self):
+        self.crit_multiplier *= 1.001
+        return max(20, self.crit_multiplier)
     class Player:
         def __init__(self):
             self.gold = 0
@@ -308,7 +337,7 @@ class ClickerGame:
             self.hero_soulsifasend = 0.0
 
         def earn_gold(self, base_income):
-            soul_effect = 1 + (self.hero_souls * 0.001)  # Minor scaling without breaking balance
+            soul_effect = 1 + (self.hero_souls * 0.1 )  # Minor scaling without breaking balance
             self.gold += base_income * self.gold_multiplier * soul_effect
 
         def ascension_boost(self):
@@ -316,9 +345,7 @@ class ClickerGame:
             self.dps_multiplier = 1.1*self.hero_souls  # Ensuring meaningful boost
 
     player = Player()
-    player.earn_gold(1e11)
-    player.ascension_boost()
-    print(f"Hero Souls: {player.hero_souls}, Gold Multiplier: {player.gold_multiplier}")
+
 
 
 

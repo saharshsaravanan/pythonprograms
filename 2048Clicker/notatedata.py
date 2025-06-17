@@ -31,7 +31,7 @@ for name, hp in hp_values:
     try:
         num_hp = int(hp)  # Convert VARCHAR to Integer
         log_hp = math.floor (math.log(num_hp, 1000))  # Log base 1000
-        b=keep_first_three_digits(num_hp)
+        b=keep_first_three_digits(num_hp)/10**len(hp%3)
         a.append(str(b)+generate_notation(log_hp))
     except ValueError:
         print(f"Skipping invalid HP value: {hp}")
